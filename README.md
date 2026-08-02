@@ -2,12 +2,14 @@
 
 Документация продукта **Docs** (редактор макетов и отчётов) в проекте [DELTA+](https://github.com/dela-soft/delta).
 
-## Документация
+## Документация / Documentation
 
-- [docs/ru/overview.md](docs/ru/overview.md) — что такое Docs
-- [docs/ru/document-model.md](docs/ru/document-model.md) — разделы, страницы, размещение
+| Language | Overview | Document model |
+|----------|----------|----------------|
+| Русский | [docs/ru/overview.md](docs/ru/overview.md) | [docs/ru/document-model.md](docs/ru/document-model.md) |
+| English | [docs/en/overview.md](docs/en/overview.md) | [docs/en/document-model.md](docs/en/document-model.md) |
 
-English добавим позже (`docs/en/` — зеркало путей `docs/ru/`).
+Русский — источник правды; `docs/en/` зеркалит те же пути.
 
 ## Примеры
 
