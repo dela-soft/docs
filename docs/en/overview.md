@@ -7,7 +7,7 @@
 - Create and edit document templates (report layouts)
 - Describe template-creation automation via the constructor (`.dtc`)
 - Shape document structure
-- Bind fields to automation expressions (**dela**)
+- Bind fields to automation expressions (**dela-script**)
 - Build a report from a template (including from **Staff** scenarios)
 
 ## Files
@@ -32,7 +32,7 @@ See [products and relationships](https://github.com/dela-soft/delta/blob/main/do
 
 In short:
 
-- **Docs** — create and edit templates (layout, constructor, **dela** expressions)
+- **Docs** — create and edit templates (layout, constructor, **dela-script** expressions)
 - **Staff** uses a document template to build a report with Docs
 
 ## Русский

@@ -21,4 +21,4 @@
 |-------------|--------|
 | [delta](https://github.com/dela-soft/delta) | DELTA+ — связи продуктов |
 | [staff](https://github.com/dela-soft/staff) | Персонал (шаблон + Docs → отчёт) |
-| [dela](https://github.com/dela-soft/dela) | Скрипты и выражения |
+| [dela](https://github.com/dela-soft/dela) | dela-script — сценарии и выражения |
