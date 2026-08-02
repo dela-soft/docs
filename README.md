@@ -9,7 +9,7 @@
 | Русский | [docs/ru/overview.md](docs/ru/overview.md) | [docs/ru/document-model.md](docs/ru/document-model.md) |
 | English | [docs/en/overview.md](docs/en/overview.md) | [docs/en/document-model.md](docs/en/document-model.md) |
 
-Русский — источник правды; `docs/en/` зеркалит те же пути.
+Русский — основной источник; `docs/en/` — автоматический перевод.
 
 ## Примеры
 
