@@ -15,6 +15,11 @@
 
 Русский — основной источник; `docs/en/` — автоматический перевод.
 
+## Развёртывание
+
+Каталог [integration/](integration/) — всё для запуска в Docker: `compose.yml`, стандартные скрипты, шрифты и клиент `delta-docs.js`.
+Архивом: [delta-docs.zip](https://github.com/dela-soft/docs/releases/download/integration/delta-docs.zip).
+
 ## Примеры
 
 Каталог [examples/](examples/) — образцы шаблонов печатных форм и отчётов (`.dlt` / `.dtc`).

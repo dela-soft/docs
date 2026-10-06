@@ -1,0 +1,35 @@
+{
+  "day":
+  {
+    "plural":
+    {
+      "full": ["day", "days", "days"],
+      "short": ["d", "d", "d"]
+    }
+  },
+  "month":
+  {
+    "plural":
+    {
+      "full": ["month", "months", "months"],
+      "short": ["mo", "mo", "mo"]
+    }
+  },
+  "year":
+  {
+    "suffix":
+    {
+      "full": "",
+      "short": ""
+    },
+    "plural":
+    {
+      "full": ["year", "years", "years"],
+      "short": ["y", "y", "y"]
+    }
+  },
+  "quarter":
+  {
+    "label": "quarter"
+  }
+}

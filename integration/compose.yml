@@ -1,0 +1,13 @@
+services:
+  docs:
+    image: ghcr.io/dela-soft/docs:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./delta:/app/delta
+    # Если скрипты отчётов вызывают API вашего приложения (host://…):
+    # environment:
+    #   InterHttp__Schemes__host__BaseUrl: http://host.docker.internal:5000
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"

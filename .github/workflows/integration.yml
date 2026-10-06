@@ -1,0 +1,25 @@
+# Архив integration/ → релиз «integration»:
+# https://github.com/dela-soft/docs/releases/download/integration/delta-docs.zip
+name: integration
+
+on:
+  push:
+    branches: [main]
+    paths: ['integration/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cd integration && zip -r ../delta-docs.zip .
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view integration >/dev/null 2>&1 \
+            || gh release create integration --title "DELTA:DOCS integration" --notes "Архив для развёртывания DELTA:DOCS"
+          gh release upload integration delta-docs.zip --clobber
