@@ -9,6 +9,8 @@
  *     target: 'window',
  *     data: { user: '…', year: 2026 },
  *     tables: { 'Table': rows },
+ *     // optional, ASCII only: REST + SignalR; host:// via ${session.header.Name}
+ *     auth: { headers: { Authorization: 'Bearer …' } },
  *     overlay: { color: '#000', opacity: 0.35, blur: 4, duration: 0.2 },
  *     // iframe only: optional shell; loading panel (delayed, off when fast)
  *     shell: '#editor-shell',
@@ -324,17 +326,33 @@
     }
   }
 
-  function buildPayload(tables, data, source) {
+  function normalizeAuth(auth) {
+    if (!auth || typeof auth !== 'object' || Array.isArray(auth)) return null
+    var h = auth.headers
+    if (!h || typeof h !== 'object' || Array.isArray(h)) return null
+    var headers = {}
+    var n = 0
+    Object.keys(h).forEach(function (name) {
+      if (h[name] == null) return
+      headers[name] = String(h[name])
+      n++
+    })
+    return n ? { headers: headers } : null
+  }
+
+  function buildPayload(tables, data, source, auth) {
     var payload = {}
     if (tables.length) payload.tables = tables
     if (data) payload.data = data
     if (source.kind === 'document') payload.document = source.document
     if (source.kind === 'compiler') payload.compiler = source.compiler
+    if (auth) payload.auth = auth
     if (
       !payload.tables &&
       payload.data === undefined &&
       payload.document === undefined &&
-      payload.compiler === undefined
+      payload.compiler === undefined &&
+      !payload.auth
     ) {
       return null
     }
@@ -626,7 +644,7 @@
 
     var tables = applyActiveTable(normalizeTables(opts.tables), opts.activeTable)
     var data = normalizeData(opts.data)
-    this._payload = buildPayload(tables, data, source)
+    this._payload = buildPayload(tables, data, source, normalizeAuth(opts.auth))
 
     var href = this.href(opts)
     var origin = this._appOrigin()

@@ -46,6 +46,7 @@ sudo chown -R 1654:1654 delta
 | `delta/public/scripts/common/` | Стандартная библиотека: даты, числа и суммы прописью, склонение |
 | `delta/fonts/` | Шрифты для редактора и PDF |
 | `host/delta-docs.js` | Клиент для вашего web-приложения |
+| `host/example.html` | Пример страницы host: открыть в браузере после `docker compose up -d` |
 
 ## Подключение к приложению
 
@@ -56,5 +57,7 @@ sudo chown -R 1654:1654 delta
   docs.open({ path: 'report.dlt', tables: { Сотрудники: rows } })
 </script>
 ```
+
+Вызов API приложения из скриптов (`host://`) и защита записи — закомментированные строки в `compose.yml`, креды передаются в `open({ auth: { headers } })`.
 
 Подробно: [инструкция по интеграции](https://docs-demo.delasoft.org/instructions.html).

@@ -6,8 +6,12 @@ services:
       - "8080:8080"
     volumes:
       - ./delta:/app/delta
-    # Если скрипты отчётов вызывают API вашего приложения (host://…):
     # environment:
+    #   # Скрипты отчётов вызывают API вашего приложения (host://…):
     #   InterHttp__Schemes__host__BaseUrl: http://host.docker.internal:5000
+    #   # Проброс заголовка из DeltaDocs.open({ auth: { headers } }) в host://:
+    #   InterHttp__Schemes__host__DefaultHeaders__Authorization: $${session.header.Authorization}
+    #   # Запись файлов только с auth.headers.Authorization = 'Bearer <секрет>':
+    #   Files__WriteUser: длинный-случайный-секрет
     # extra_hosts:
     #   - "host.docker.internal:host-gateway"

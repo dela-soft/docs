@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DELTA:DOCS — пример host</title>
+</head>
+<body>
+  <h1>DELTA:DOCS — пример host</h1>
+
+  <p>
+    <button id="newTemplate">Новый шаблон</button>
+    <button id="openFile">Открыть report.dlt</button>
+  </p>
+  <p>«Открыть report.dlt» — положите файл в <code>delta/public/report.dlt</code> (например, сохранив новый шаблон под этим именем).</p>
+
+  <script src="delta-docs.js"></script>
+  <script>
+    // Адрес docs, как его видит браузер.
+    const docs = new DeltaDocs('http://localhost:8080')
+
+    const tables = {
+      Сотрудники: [
+        { id: 1, name: 'Петров П.П.', position: 'Разработчик', salary: 150000 },
+        { id: 2, name: 'Сидоров С.С.', position: 'QA инженер', salary: 120000 },
+        { id: 3, name: 'Алексеев А.А.', position: 'Тимлид', salary: 250000 },
+      ],
+    }
+    const data = { user: 'Иванов И.И.', org: 'ООО "Зоосфера"' }
+
+    // Необязательно: креды для host:// и для записи при Files__WriteUser (только ASCII).
+    const auth = undefined
+    // const auth = { headers: { Authorization: 'Bearer <секрет или токен>' } }
+
+    // open() вызывайте прямо в обработчике клика — иначе браузер заблокирует новую вкладку.
+    document.getElementById('newTemplate').addEventListener('click', () => {
+      docs.open({
+        mode: 'template',
+        target: 'window',
+        lang: 'ru',
+        document: { title: 'Отчёт', sections: [{ items: [], expression: [] }] },
+        data,
+        tables,
+        auth,
+      })
+    })
+
+    document.getElementById('openFile').addEventListener('click', () => {
+      docs.open({
+        path: 'report.dlt',
+        mode: 'template',
+        target: 'window',
+        lang: 'ru',
+        data,
+        tables,
+        auth,
+      })
+    })
+  </script>
+</body>
+</html>
